@@ -1,0 +1,55 @@
+in this doc , I will write what I have done in each file
+and some learnings and decisions I learnt / made at each step
+
+production workflow:
+
+
+
+--.env-- 
+store some private/secret info that is not supposed to made public.
+not to be pushed to github either
+my jwt secret key is used to sign / create JWT token
+JWT token is given to each user so that next time they log in , they can be identified by JWT
+
+
+
+--database.py--
+SQLAlchemy sits between database and Python. Helps python to talk to database in terms of classes 
+created engine that prepares SQLAlchemy for communication
+creating a sessionmaker that makes sessions (sessions to talk to database)
+Database sessions are created only when we need to talk to the database
+declaring a Base (Base tells you which all classes are actual tables/models)
+
+get_db() is a dependency that FastAPI routes will use to get a session
+
+--main.py--
+created a fastAPI instance 
+Base.metadata.create_all(bind=engine) -> this line actually creates tables in postgreSQL
+
+
+--models.py--
+basically how data is stored in postgreSQL
+has the database models for user and tasks for pydantic classes
+importing Base from database that helps to recognize both the classes of User and Task as schemas
+
+
+
+--auth.py--
+we hash the password entered by the user and store only the hashed password in the database
+we hash it using bcrypt
+another verify_password function , so that next time user logins , we are able to confirm if 
+correct password is entered or not
+
+user gets JWT token after logging in and then on future requests , token provides identity
+
+
+
+--schemas.py--
+these schemas tells the shape of data for a specific API
+how data enters and leaves the API
+
+
+
+some other things I learnt:
+-> using virtual environment
+-> using .gitignore

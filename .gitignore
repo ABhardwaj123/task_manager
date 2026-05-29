@@ -1,0 +1,14 @@
+# virtual environment
+backend/venv/
+
+# used to hide JWT key , database URL from Git
+backend/.env
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/
+
+.DS_Store
