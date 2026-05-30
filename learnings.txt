@@ -22,15 +22,29 @@ declaring a Base (Base tells you which all classes are actual tables/models)
 
 get_db() is a dependency that FastAPI routes will use to get a session
 
+
+
+
+
+
 --main.py--
 created a fastAPI instance 
 Base.metadata.create_all(bind=engine) -> this line actually creates tables in postgreSQL
+linked router object from /routes/auth.py (router object groups the auth endpoints together)
+
+
+
+
 
 
 --models.py--
 basically how data is stored in postgreSQL
 has the database models for user and tasks for pydantic classes
 importing Base from database that helps to recognize both the classes of User and Task as schemas
+
+
+
+
 
 
 
@@ -44,9 +58,44 @@ user gets JWT token after logging in and then on future requests , token provide
 
 
 
+
+
+
 --schemas.py--
 these schemas tells the shape of data for a specific API
 how data enters and leaves the API
+
+
+
+
+
+
+--dependencies.py--
+say a user goes to some route , now we have to check inside every route if the user is logged in or not
+to remove that redundancy , we write the code of checking if user is logged in or not once in this file
+
+use OAuth2PasswordBearer -> this extracts the JWT token from the authorization header
+Depends in function parameters -> it first runs the dependencies which are as parameters of the function
+        after that the function runs
+
+if token is valid , full user object is returned to the route
+
+
+
+
+
+
+--/routes/auth.py--
+added two endpoints of user registration and user login
+taking care if at every point valid email is there , valid password is there etc
+learnt some syntax related to fetching data from database
+
+created a router instance -> it groups related endpoints so that they can be plugged into main app as one unit
+
+
+
+
+
 
 
 
