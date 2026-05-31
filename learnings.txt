@@ -96,6 +96,15 @@ created a router instance -> it groups related endpoints so that they can be plu
 
 
 
+--/routes/tasks.py
+added endpoints for tasks 
+1. get all the tasks
+2. add a task
+3. update a task
+4. delete a task
+
+
+
 
 
 

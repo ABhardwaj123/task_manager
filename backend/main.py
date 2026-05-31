@@ -8,6 +8,7 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 app.include_router(router , prefix="/auth")
+app.include_router(router , prefix="/tasks")
 
 @app.get("/")
 def home():

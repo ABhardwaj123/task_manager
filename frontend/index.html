@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="tabs">
+            <button id="tab-login" onclick="showTab('login')">Login</button>
+            <button id="tab-register" onclick="showTab('register')">Register</button>
+        </div>
+
+        <div id="register-form" style="display: none;">
+
+            <input type="text" id="register-username" name="username" placeholder="Username">
+            <input type="text" id="register-email" name="email" placeholder="Email ID">
+            <input type="password" id="register-password" name="password" placeholder="Password">
+            <button id="register-btn" onclick="">Submit</button>
+
+        </div>
+
+        <div id="login-form">
+
+            <input type="text" id="login-email" name="email" placeholder="Email ID">
+            <input type="password" id="login-password" name="password" placeholder="Password">
+            <button id="login-btn" onclick="">Submit</button>
+
+        </div>
+
+        <div id="message"></div>
+
+    </div>
+    
+
+    <script src="js/app.js"></script>
+</body>
+</html>

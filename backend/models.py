@@ -1,6 +1,7 @@
 from database import Base
 from sqlalchemy import Column , Integer , String , DateTime , Boolean , ForeignKey
 from sqlalchemy.orm import relationship
+from datetime import datetime
 
 #id, username, email, password, created_at
 class User(Base):
@@ -25,7 +26,7 @@ class Task(Base):
     title = Column(String)
     description = Column(String)
     is_done = Column(Boolean)
-    created_at = Column(DateTime)
+    created_at = Column(DateTime , default=datetime.utcnow)
     #Task object can access its owner User object
     owner = relationship("User", back_populates="tasks")
 
