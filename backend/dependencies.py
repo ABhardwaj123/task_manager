@@ -15,7 +15,13 @@ oauth2_obj = OAuth2PasswordBearer(tokenUrl="auth/login")
 def get_current_user(token = Depends(oauth2_obj) , db = Depends(get_db)):
 
     #we get the decoded string from this function using JWT token
-    payload= decode_access_token(token=token)
+    payload = decode_access_token(token=token)
+
+    if payload is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="invalid credential"
+        )
 
     #sub is just a key that holds some user's email
     email = payload.get("sub")

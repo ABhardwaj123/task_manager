@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--navbar with app name and a logout button-->
+    <nav class="navbar">
+        <h1 id="appname">Task Manager</h1>
+        <button id="logout-btn">Logout</button>
+    </nav>
+
+    <!--form section to add new task with title , description , add task button-->
+    <div class="form">
+        <h2>Add Task</h2>
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="title" placeholder="Title" />
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" id="description" placeholder="Description" />
+        </div>
+
+        <button id="addtask-btn">Add Task</button>
+
+    </div>
+    <!--task list section where all tasks will be displayed-->
+    <!--title , description , complete/uncomplete button , delete task button-->
+    <div id="tasks-list"></div>
+
+    <!--message div for error-->>
+    <div id="message"></div>
+    <!--linking js file-->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

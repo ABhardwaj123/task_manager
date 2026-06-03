@@ -11,7 +11,7 @@ class User(Base):
     username = Column(String)
     email = Column(String)
     password = Column(String)
-    created_at = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
     #User object has access to all related Task object
     tasks = relationship("Task", back_populates="owner")
 

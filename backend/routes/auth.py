@@ -4,7 +4,7 @@ from fastapi import APIRouter , Depends , status , HTTPException
 from database import get_db
 from models import User
 from schemas import UserCreate , UserLogin , Token
-from backend.auth import hash_password , verify_password , create_access_token
+from auth import hash_password , verify_password , create_access_token
 
 # API router instance
 router = APIRouter()

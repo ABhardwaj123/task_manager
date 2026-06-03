@@ -7,7 +7,7 @@ from schemas import TaskOut , TaskCreate , TaskUpdate
 
 router = APIRouter()
 
-@router.get("/tasks" , response_model=list[TaskOut])
+@router.get("/" , response_model=list[TaskOut])
 def get_tasks(current_user = Depends(get_current_user), db: Session = Depends(get_db)):
 
     id = current_user.id
@@ -17,7 +17,7 @@ def get_tasks(current_user = Depends(get_current_user), db: Session = Depends(ge
 
     
 
-@router.post("/tasks" , response_model=TaskOut)
+@router.post("/" , response_model=TaskOut)
 def post_tasks(task: TaskCreate , current_user = Depends(get_current_user), db: Session = Depends(get_db)):
 
     new_task = Task(owner_id= current_user.id ,
@@ -35,7 +35,7 @@ def post_tasks(task: TaskCreate , current_user = Depends(get_current_user), db: 
 
 
 #this id is task id
-@router.put("/tasks/{id}" , response_model=TaskOut)
+@router.put("/{id}" , response_model=TaskOut)
 def update_task(id: int , task_info: TaskUpdate , current_user = Depends(get_current_user), db: Session = Depends(get_db)):
 
     #check if task belongs to that user or not
@@ -64,7 +64,7 @@ def update_task(id: int , task_info: TaskUpdate , current_user = Depends(get_cur
     
 
 
-@router.delete("/tasks/{id}" , response_model=None)
+@router.delete("/{id}" , response_model=None)
 def delete_task(id: int , current_user = Depends(get_current_user), db: Session = Depends(get_db)):
 
     task = db.query(Task).filter(Task.id == id).first()
