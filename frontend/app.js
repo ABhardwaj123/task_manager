@@ -130,7 +130,7 @@ async function toggleTask(id , status) {
     
     const token = localStorage.getItem("token")
 
-    const reponse = await fetch(`http://127.0.0.1:8000/tasks/${id}` , {
+    const response = await fetch(`http://127.0.0.1:8000/tasks/${id}` , {
         method: "PUT",
         headers: {
             "Content-Type": "application/json" ,
@@ -151,7 +151,7 @@ async function toggleTask(id , status) {
 }
 
 
-async function deleteTask(){
+async function deleteTask(id){
 
     const token = localStorage.getItem("token")
 
