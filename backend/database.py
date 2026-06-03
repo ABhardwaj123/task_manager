@@ -44,8 +44,6 @@ def get_db():
     try:
         #yield hands the active sessions to routes
         yield db
-    except Exception as e:
-        print(e)
     finally:
         db.close()
 
