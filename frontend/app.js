@@ -18,7 +18,7 @@ async function login() {
 
     //fetch sends HTTP request to our fastApi server
     //await means to wait until a response is generated
-    const response = await fetch('http://127.0.0.1:8000/auth/login', {
+    const response = await fetch('https://task-manager-4vyx.onrender.com/auth/login', {
         method: 'POST',
         headers: {
             //tells fastApi that we are sending data in json form
@@ -56,7 +56,7 @@ async function register() {
     const email = document.getElementById('register-email').value
     const password = document.getElementById('register-password').value
 
-    const response = await fetch('http://127.0.0.1:8000/auth/register', {
+    const response = await fetch('https://task-manager-4vyx.onrender.com/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function logOut() {
 async function getTasks() {
     const token = localStorage.getItem("token")
 
-    const response = await fetch("http://127.0.0.1:8000/tasks", {
+    const response = await fetch("https://task-manager-4vyx.onrender.com/tasks", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -130,7 +130,7 @@ async function toggleTask(id , status) {
     
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`http://127.0.0.1:8000/tasks/${id}` , {
+    const response = await fetch(`https://task-manager-4vyx.onrender.com/tasks/${id}` , {
         method: "PUT",
         headers: {
             "Content-Type": "application/json" ,
@@ -155,7 +155,7 @@ async function deleteTask(id){
 
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`http://127.0.0.1:8000/tasks/${id}`, {
+    const response = await fetch(`https://task-manager-4vyx.onrender.com/tasks/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -181,7 +181,7 @@ async function addTask() {
     const description = document.getElementById('description').value
     const token = localStorage.getItem("token")
 
-    const response = await fetch("http://127.0.0.1:8000/tasks", {
+    const response = await fetch("https://task-manager-4vyx.onrender.com/tasks", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
